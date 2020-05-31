@@ -45,7 +45,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -154,9 +154,6 @@
     <Compile Include="ganttUC.xaml.cs">
       <DependentUpon>ganttUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\testExpander.xaml.cs">
-      <DependentUpon>testExpander.xaml</DependentUpon>
-    </Compile>
     <Compile Include="usercontrols\timePointerMiniUC.xaml.cs">
       <DependentUpon>timePointerMiniUC.xaml</DependentUpon>
     </Compile>
@@ -228,12 +225,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ganttUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="usercontrols\testExpander.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

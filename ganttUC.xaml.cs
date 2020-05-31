@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SCADAServis.Controls
 {
@@ -90,7 +82,6 @@ namespace SCADAServis.Controls
         {
             common.MainControl = this;
             InitializeComponent();
-            this.Visibility = Visibility.Hidden;
 
             if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
             {
@@ -200,7 +191,10 @@ namespace SCADAServis.Controls
                 End = End.Subtract(SmallStep);
             }
 
-            OnTimeLineChanged(Start, End);
+            if (OnTimeLineChanged != null)
+            {
+                OnTimeLineChanged(Start, End);
+            }
             //Recreate();
         }
 
@@ -218,7 +212,10 @@ namespace SCADAServis.Controls
                 End = End.Add(SmallStep);
             }
 
-            OnTimeLineChanged(Start, End);
+            if (OnTimeLineChanged != null)
+            {
+                OnTimeLineChanged(Start, End);
+            }
             //Recreate();
         }
 
@@ -226,14 +223,20 @@ namespace SCADAServis.Controls
         {
             Start = start;
             End = end;
-            OnTimeLineChanged(start, end);
+            if (OnTimeLineChanged != null)
+            {
+                OnTimeLineChanged(start, end);
+            }
         }
 
         public void GoTo(DateTime time)
         {
             var half = new TimeSpan((End - Start).Ticks / 2); //nejprve spočítá kolik dní je v rozsahu aktuálně
             ZoomTo(time.Subtract(half), time.Add(half));
-            OnTimeLineChanged(Start, End);
+            if (OnTimeLineChanged != null)
+            {
+                OnTimeLineChanged(Start, End);
+            }
         }
 
 

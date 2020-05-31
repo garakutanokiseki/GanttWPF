@@ -7,6 +7,8 @@
     xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
 	x:Class="SCADAServis.Controls.ganttUC"
     mc:Ignorable="d"
+    Background="AliceBlue"
+   
     >
 
     <UserControl.Resources>
@@ -339,57 +341,61 @@
 
     </UserControl.Resources>
 
-	<Border Margin="2,2,6,6" BorderBrush="#FFB1B1B1" BorderThickness="1">
-		<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup x:Name="VisualStateGroup">
-				<VisualStateGroup.Transitions>
-					<VisualTransition GeneratedDuration="0:0:1.5"/>
-				</VisualStateGroup.Transitions>
-				<VisualState x:Name="LeftScrollVisible"/>
-				<VisualState x:Name="RightScrollVisible">
-					<Storyboard>
-						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path1">
-							<SplineDoubleKeyFrame KeyTime="0" Value="0.4"/>
-						</DoubleAnimationUsingKeyFrames>
-					</Storyboard>
-				</VisualState>
-				<VisualState x:Name="ScrollsInvisible"/>
-			</VisualStateGroup>
-		</VisualStateManager.VisualStateGroups>
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="Auto"/>
-			
-			</Grid.RowDefinitions>
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,3,10">
-                <Button Style="{DynamicResource CalendarButtonStyle}" Content="Week" Click="Button_Click" />
-				<Button Style="{DynamicResource CalendarButtonStyle}" Content="Day" Click="Button_Click_1" />
-				<Button Style="{DynamicResource CalendarButtonStyle}" Content="Hour" Click="Button_Click_2" />
-				<Button Style="{DynamicResource CalendarButtonStyle}" Content="Minute" Click="Button_Click_3" />
-			</StackPanel>
-			
-			
-			<Grid Grid.Row="1">
-				
-				<ScrollViewer VerticalScrollBarVisibility="Visible"  MinHeight="100"  ><ContentControl MouseWheel="ganttContainer_MouseWheel">
-						<StackPanel>
-						<StackPanel x:Name="groupsContainer" Orientation="Vertical"/>
-					<c:ganttTimeHeader x:Name="TimeHeader" Margin="204,00,0,0" Grid.Row="2"/>		
-					</StackPanel>
-					</ContentControl>
-				
-				</ScrollViewer>
-				<c:GanttLeftScrollUC HorizontalAlignment="Left" Margin="210,0,0,0" />
-                <c:GanttRightScrollUC HorizontalAlignment="Right" Margin="0,0,0,0" />
-                <c:ganttCalendar x:Name="calendar" Visibility="Hidden" HorizontalAlignment="Center" MinHeight="200" MinWidth="280" VerticalAlignment="Center" Opacity="0.85" />
-				
-			</Grid>
-			
-					
-			
-			
-		</Grid>
-	</Border>
+    <Grid>
+        <Border Margin="2,2,6,6" BorderBrush="#FFB1B1B1" BorderThickness="1">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="VisualStateGroup">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0:0:1.5"/>
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="LeftScrollVisible"/>
+                    <VisualState x:Name="RightScrollVisible">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path1">
+                                <SplineDoubleKeyFrame KeyTime="0" Value="0.4"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="ScrollsInvisible"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,3,10">
+                    <Button Style="{DynamicResource CalendarButtonStyle}" Content="Week" Click="Button_Click" />
+                    <Button Style="{DynamicResource CalendarButtonStyle}" Content="Day" Click="Button_Click_1" />
+                    <Button Style="{DynamicResource CalendarButtonStyle}" Content="Hour" Click="Button_Click_2" />
+                    <Button Style="{DynamicResource CalendarButtonStyle}" Content="Minute" Click="Button_Click_3" />
+                </StackPanel>
+
+
+                <Grid Grid.Row="1">
+
+                    <ScrollViewer VerticalScrollBarVisibility="Visible"  MinHeight="100"  >
+                        <ContentControl MouseWheel="ganttContainer_MouseWheel">
+                            <StackPanel>
+                                <StackPanel x:Name="groupsContainer" Orientation="Vertical"/>
+                                <c:ganttTimeHeader x:Name="TimeHeader" Margin="204,00,0,0" Grid.Row="2"/>
+                            </StackPanel>
+                        </ContentControl>
+
+                    </ScrollViewer>
+                    <c:GanttLeftScrollUC HorizontalAlignment="Left" Margin="210,0,0,0" />
+                    <c:GanttRightScrollUC HorizontalAlignment="Right" Margin="0,0,0,0" />
+                    <c:ganttCalendar x:Name="calendar" Visibility="Hidden" HorizontalAlignment="Center" MinHeight="200" MinWidth="280" VerticalAlignment="Center" Opacity="0.85" />
+
+                </Grid>
+
+
+
+
+            </Grid>
+        </Border>
+    </Grid>
+
 </UserControl>
